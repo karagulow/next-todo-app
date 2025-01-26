@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 
 import './globals.css';
 import { Container } from '@/components/shared/container';
+import { ThemeProvider } from '@/components/shared/theme-provider';
 
 const inter = Inter({
 	variable: '--font-inter',
@@ -23,7 +24,9 @@ export default function RootLayout({
 	return (
 		<html lang='en'>
 			<body className={inter.className}>
-				<Container>{children}</Container>
+				<ThemeProvider>
+					<Container>{children}</Container>
+				</ThemeProvider>
 			</body>
 		</html>
 	);

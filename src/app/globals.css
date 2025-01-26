@@ -16,18 +16,16 @@
 	--radius: 20px;
 }
 
-@media (prefers-color-scheme: dark) {
-	:root {
-		--main-bg: #0b0b0b;
-		--block-bg: #262626;
+.dark {
+	--main-bg: #0b0b0b;
+	--block-bg: #262626;
 
-		--primary-foreground: #eeeeee;
-		--secondary-foreground: #b4b4b4;
+	--primary-foreground: #eeeeee;
+	--secondary-foreground: #b4b4b4;
 
-		--input: #191919;
-		--border: #3a3a3a;
-		--placeholder: #8d8d8d;
-	}
+	--input: #191919;
+	--border: #3a3a3a;
+	--placeholder: #8d8d8d;
 }
 
 body {
