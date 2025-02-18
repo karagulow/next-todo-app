@@ -12,6 +12,9 @@ interface TaskStore {
 	addTask: (text: string) => void;
 	deleteTask: (id: number) => void;
 	toggleTask: (id: number) => void;
+	editTask: (id: number, newText: string) => void;
+	setEditingTask: (id: number | null) => void;
+	editingTaskId: number | null;
 }
 
 const useTaskStore = create<TaskStore>()(
@@ -38,6 +41,19 @@ const useTaskStore = create<TaskStore>()(
 						task.id === id ? { ...task, completed: !task.completed } : task
 					),
 				})),
+			editTask: (id, newText) =>
+				set(state => ({
+					tasks: state.tasks.map(task =>
+						task.id === id ? { ...task, text: newText } : task
+					),
+				})),
+
+			setEditingTask: id =>
+				set(() => ({
+					editingTaskId: id,
+				})),
+
+			editingTaskId: null,
 		}),
 		{
 			name: 'task-storage',
